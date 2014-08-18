@@ -5,6 +5,9 @@ from bbapp.models import News
 
 # Create your views here.
 
+def home(request):
+	return render_to_response('index.html', {'last_news': News.objects.order_by('-pub_date')[:4]})
+
 def all_news(request):
 	return render_to_response('all_news.html', {'all_news': News.objects.all()})
 
