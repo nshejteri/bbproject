@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if all_news.count > 0 %}
+
+{% for news in all_news %}
+<div>
+	<h2><a href="/news/id/{{ news.id }}">{{ news.title }}</a></h2>
+	<p>{{ news.text }}</p>
+</div>
+{% endfor %}
+
+{% else %}
+<p>Nema novih vesti!</p>
+{% endif %}
+
+{% endblock %}

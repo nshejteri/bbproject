@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+<ul>
+	<li><a href="/news/all">Sve vesti</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ single_news.title }}</h1>
+<p>{{ single_news.text }}</p>
+
+{% endblock %}	
