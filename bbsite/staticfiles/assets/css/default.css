@@ -3,20 +3,23 @@ body {
 }
 
 .news-title-box {
-	background: url("/static/assets/images/pattern-btzn.png") repeat;
+	/*background: url("/static/assets/images/pattern-btzn.png") repeat;*/
+	background-color: brown;
 	box-shadow: 0 0 6px dimgray;
 	border-color: rgb(145, 140, 140);
 }
 
 .informations-title-box {
-	background: url("/static/assets/images/pattern-btzn.png") repeat;
+	/*background: url("/static/assets/images/pattern-btzn.png") repeat;*/
+	background-color: brown;
 	box-shadow: 0 0 6px dimgray;
 	border-color: rgb(145, 140, 140);
 	margin: 20 0 10 0;
 }
 
 .actual-title-box {
-	background: url("/static/assets/images/pattern-btzn.png") repeat;
+	/*background: url("/static/assets/images/pattern-btzn.png") repeat;*/
+	background-color: brown;
 	box-shadow: 0 0 6px dimgray;
 	border-color: rgb(145, 140, 140);
 	margin: 20 0 10 0;
@@ -46,12 +49,43 @@ body {
 .header {
 	background-color: brown;
 	height: 220px;
+	line-height: 207px;
+	margin-bottom: -3px;
+}
+
+.header-slide {
+	display: inline-block;
+}
+
+.header-slide > img {
+	position: absolute;
+	top: 16px;
+	margin-left: 35px;
+	display: none;
+}
+
+.header-title {
+	text-align: center;
+	font-size: 90px;
+	font-family: serif;
+	text-shadow: 3px 3px rgb(201, 147, 34);
+}
+
+@media all and (max-width: 500px) {
+    .header-title {
+        font-size: 3.8em;
+    }
+}
+
+@media all and (max-width: 1000px) {
+    .header-title {
+        font-size: 3.8em;
+    }
 }
 
 .img-circle {
 	height: 190px;
 	width: 190px;
-
 }
 
 .myPanel {
@@ -78,7 +112,7 @@ body {
 	position: absolute;
 	padding: 2px 6px;
 	font-weight: bold;
-	background: url("http://b92s.net/v4/img/dot-purple2.png") repeat;
+	background: url("/static/assets/images/dot.png") repeat;
 }
 
 .information-text {
@@ -96,31 +130,41 @@ body {
 	position: absolute;
 	padding: 2px 6px;
 	font-weight: bold;
-	background: url("http://b92s.net/v4/img/dot-purple2.png") repeat;
+	background: url("/static/assets/images/dot.png") repeat;
 }
 
 .thumbnail {
-	background-color: rgba(146, 145, 145, 0.34);
+	background-color: rgba(248, 178, 30, 0.4);
 	box-shadow: 0 0 6px rgb(46, 37, 37);
 	border: 0;
 }
 
 .thumbnail a img {
-	width: 100%;
+	width: 180px;
+	height: 140px;
 }
 
 .media-list {
-	background-color: rgba(153, 153, 152, 0.73);
-	padding: 5px;
+	padding: 5px 5px 30px 5px;
 	border-radius: 4px;
+	height: 300px;
 }
 
 .media {
 	position: relative;
-	background-color: rgba(187, 181, 181, 0.56);
+	background-color: rgba(248, 178, 30, 0.4);
 	padding: 3px;
 	border-radius: 4px;
 	box-shadow: 0 0 6px rgb(46, 37, 37);
+}
+
+.load-information {
+	text-align: center;
+	padding-top: 4px;
+}
+
+.load-information a {
+	cursor: pointer;
 }
 
 .footer {

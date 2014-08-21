@@ -3,7 +3,7 @@
 {% block content %}
 
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-sm-12">
 		  	<div class="panel panel-default news-title-box">
 				<div class="panel-body news-title">
 					Najnovije vesti<span><a href="/news/all">Sve vesti</a></span>
@@ -14,20 +14,20 @@
 
 	<div class="row">
 		{% for news in last_news %}
-		<div class="col-md-3 col-sm-6">
+		<div class="col-sm-3 col-xs-6">
 			<div class="thumbnail">
 				<a href="/news/id/{{ news.id }}">
-			    	<img data-src="holder.js/100%x150" src="/static/assets/images/maintenance.jpg" alt="150x150">
+			    	<img src="/media/{{ news.thumbnail }}" alt="150x150">
 			    </a>
 
 			    <span class="news-published-date">
-			    	{{ news.pub_date|date:"d/m/y H:m" }}
+			    	{{ news.pub_date|date:'d/m/Y H:i' }}
 			    </span>
 			
 				<div class="caption">
 		            <strong><a href="/news/id/{{ news.id }}">{{ news.title }}</a></strong>
 		            <div class="news-text">
-		            	Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+		            	{{ news.text }}
 		            </div>
       			</div>
       		</div>
@@ -36,7 +36,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-sm-6">
 		  	<div class="panel panel-default informations-title-box">
 				<div class="panel-body informations-title">
 					Obaveštenja
@@ -74,6 +74,19 @@
 				    		</div>
 				    	</div>
 				  	</li>
+
+				  	<li class="media">
+				  	<span class="information-published-date">02/02/14 12:12</span>
+				    	<a class="pull-left" href="#">
+				      	<img class="media-object" src="/static/assets/images/maintenance.jpg" alt="..." width="50px" height="50px"></a>
+				      	
+				    	<div class="media-body">
+				      		<h5 class="media-heading"><a href="">Media heading</a></h5>
+				      		<div class="information-text">
+				      		aaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaadd dddddddddddddddd dddddaaa aaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaa aaaaa aaaaa aaaaaa aaaaaa aaaaaaaaaaaaa aaaaaaaaaa aaaaaaa aaaaaa aaaaaaaaaaaaaaaa aaaaaaaa aaaaaaaa aaaaa aaaaaaaaa aaaaaaa aaaaaaaa
+				    		</div>
+				    	</div>
+				  	</li>
 				  	
 				  	
 				  	<li class="media">
@@ -88,11 +101,15 @@
 				    		</div>
 				    	</div>
 				  	</li>
+
+					<li class="load-information">
+				  		<a><span class="glyphicon glyphicon-chevron-down"></span></a>
+				  	</li>
 				</ul>
 			
 		</div>
 
-		<div class="col-md-6">
+		<div class="col-sm-6">
 		  	<div class="panel panel-default actual-title-box">
 				<div class="panel-body actual-title">
 					Aktuelno
@@ -112,9 +129,7 @@
     	<h3 class="panel-title"><small>Vremenska prognoza</small></h3>
   	</div>
   	<div class="panel-body">
-    	<div class="weather">
-    		<p style="display: block !important; text-align: center; font-family: sans-serif; font-size: 12px;"><a href="http://weathertemperature.com/forecast/?q=Backi+Breg,Vojvodina,Serbia" title="Backi Breg, Vojvodina, Serbia Weather Forecast" onclick="this.target='_blank'"><img src="http://widget.addgadgets.com/weather/v1/?q=Backi+Breg,Vojvodina,Serbia&amp;s=2&amp;u=1" alt="Weather temperature in Backi Breg, Vojvodina, Serbia" width="140" height="102" style="border:0" /></a><br /><a href="http://weathertemperature.com/" title="Get latest Weather Forecast updates" style="font-family: sans-serif; font-size: 12px" onclick="this.target='_blank'">Weather Forecast</a></p>
-    	</div>
+    	
   	</div>
 </div>
 

@@ -18,9 +18,22 @@
 <body>
 	{% block header %}
 	
-		<div class="header">
-			<img src="/static/assets/images/maintenance.jpg" alt="..." class="img-circle">
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9 col-xs-12"><p class="header-title">BAČKI BREG</p></div>
+				<div class="col-sm-3">
+					<div class="header-slide hidden-xs">
+						<img src="/static/assets/images/header/1.jpg" alt="..." class="img-circle" style="display: block;">
+						<img src="/static/assets/images/header/2.jpg" alt="..." class="img-circle">
+						<img src="/static/assets/images/header/3.jpg" alt="..." class="img-circle">
+						<img src="/static/assets/images/header/4.jpg" alt="..." class="img-circle">
+						<img src="/static/assets/images/header/5.jpg" alt="..." class="img-circle">
+					</div>
+				</div>
+			</div>
 		</div>
+	</div>
 	
 	{% endblock %}
 	
@@ -47,12 +60,12 @@
 		        <li><a href="#">Kontakt</a></li>
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
-		 </div><!-- /.container -->
+		</div><!-- /.container -->
 	</div>
 		
 	<div class="container">
-
-			<div class="col-md-9">
+		<div class="row">
+			<div class="col-sm-9">
 	  			
 				{% block content %}
 				
@@ -61,13 +74,14 @@
 				<!-- <img src='{% static "assets/images/ferrari.gif" %}' alt="ferrari logo"/> -->
 			</div>
 
-			<div class="col-md-3">
+			<div class="col-sm-3">
 			
 			{% block sidebar %}
 			
 			{% endblock %}
 			
 			</div>
+		</div>
 	</div>
 
 	<div class="footer">
