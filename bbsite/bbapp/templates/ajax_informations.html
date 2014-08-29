@@ -1,0 +1,20 @@
+{% if informations.count > 0 %}
+
+	{% for info in informations %}
+		<li class="media">
+			<a class="pull-left" href="/information/id/{{ info.id }}">
+	      	<img class="media-object" src="/media/{{ info.thumbnail }}" alt="..." width="50px" height="50px"></a>
+
+	    	<div class="media-body">
+	      		<h5 class="media-heading"><a href="">{{ info.title }}</a></h5>
+	      		<div class="information-text">
+	      		<span class="information-published-date">{{ info.pub_date|date:'d/m/Y H:i' }}</span>
+	      		{{ info.text }}
+	    		</div>
+	    	</div>
+	    </li>
+	{% endfor %}
+
+{% else %}
+	<input type="hidden" value="hide" class="hideLinkMoreInfo">
+{% endif %}

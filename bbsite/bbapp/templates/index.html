@@ -39,76 +39,38 @@
 		<div class="col-sm-6">
 		  	<div class="panel panel-default informations-title-box">
 				<div class="panel-body informations-title">
-					Obaveštenja
+					Obaveštenja <span><a href="/information/all">Sva obaveštenja</a></span>
 				</div>
 			</div>
 			
-				<ul class="media-list">
-					
-					
+			<ul class="media-list">
+				<div class="information-box">
+					{% for information in last_informations %}
 				  	<li class="media">
 				  	
-				    	<a class="pull-left" href="#">
-				      	<img class="media-object" src="/static/assets/images/maintenance.jpg" alt="..." width="50px" height="50px"></a>
+				    	<a class="pull-left" href="/information/id/{{ information.id }}">
+				      	<img class="media-object" src="/media/{{ information.thumbnail }}" alt="..." width="50px" height="50px"></a>
 
-				      	
 				    	<div class="media-body">
-				      		<h5 class="media-heading"><a href="">Media heading</a></h5>
+				      		<h5 class="media-heading"><a href="">{{ information.title }}</a></h5>
 				      		<div class="information-text">
-				      		<span class="information-published-date">02/02/14 12:10</span>
-				      		aaaassdfaaaaa aaaaaaaaaaaaaa aaaaaaaaadd dddddddddddddddd dddddaaa aaadaaaaa aaaa aaaaaaa aaaaaaa aaaaaa aaaaa aaaaa aaaaaa aaaaaa aaaaaaaaaaaaa aaaaaaaaaa aaaaaaa aaaaaa aaaaaaaaaaaaaaaa aaaaaaaa aaaaaaaa aaaaa aaaaaaaaa aaaaaaa aaaaaaaa
+				      		<span class="information-published-date">{{ information.pub_date|date:'d/m/Y H:i' }}</span>
+				      		{{ information.text }}
 				    		</div>
 				    	</div>
 				  	</li>
+				  	{% endfor %}
 				  	
-				  	
-				  	<li class="media">
-				  	<span class="information-published-date">02/02/14 12:11</span>
-				    	<a class="pull-left" href="#">
-				      	<img class="media-object" src="/static/assets/images/maintenance.jpg" alt="..." width="50px" height="50px"></a>
-				      	
-				    	<div class="media-body">
-				      		<h5 class="media-heading"><a href="">Media heading</a></h5>
-				      		<div class="information-text">
-				      		aaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaadd dddddddddddddddd dddddaaa aaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaa aaaaa aaaaa aaaaaa aaaaaa aaaaaaaaaaaaa aaaaaaaaaa aaaaaaa aaaaaa aaaaaaaaaaaaaaaa aaaaaaaa aaaaaaaa aaaaa aaaaaaaaa aaaaaaa aaaaaaaa
-				    		</div>
-				    	</div>
-				  	</li>
+				  	<div id="loaded-informations"></div>
 
-				  	<li class="media">
-				  	<span class="information-published-date">02/02/14 12:12</span>
-				    	<a class="pull-left" href="#">
-				      	<img class="media-object" src="/static/assets/images/maintenance.jpg" alt="..." width="50px" height="50px"></a>
-				      	
-				    	<div class="media-body">
-				      		<h5 class="media-heading"><a href="">Media heading</a></h5>
-				      		<div class="information-text">
-				      		aaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaadd dddddddddddddddd dddddaaa aaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaa aaaaa aaaaa aaaaaa aaaaaa aaaaaaaaaaaaa aaaaaaaaaa aaaaaaa aaaaaa aaaaaaaaaaaaaaaa aaaaaaaa aaaaaaaa aaaaa aaaaaaaaa aaaaaaa aaaaaaaa
-				    		</div>
-				    	</div>
-				  	</li>
-				  	
-				  	
-				  	<li class="media">
-				  	<span class="information-published-date">02/02/14 12:12</span>
-				    	<a class="pull-left" href="#">
-				      	<img class="media-object" src="/static/assets/images/maintenance.jpg" alt="..." width="50px" height="50px"></a>
-				      	
-				    	<div class="media-body">
-				      		<h5 class="media-heading"><a href="">Media heading</a></h5>
-				      		<div class="information-text">
-				      		aaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaadd dddddddddddddddd dddddaaa aaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaa aaaaa aaaaa aaaaaa aaaaaa aaaaaaaaaaaaa aaaaaaaaaa aaaaaaa aaaaaa aaaaaaaaaaaaaaaa aaaaaaaa aaaaaaaa aaaaa aaaaaaaaa aaaaaaa aaaaaaaa
-				    		</div>
-				    	</div>
-				  	</li>
-
-					<li class="load-information">
-				  		<a><span class="glyphicon glyphicon-chevron-down"></span></a>
-				  	</li>
-				</ul>
+				  	<li class="load-information"> {% csrf_token %}
+			  			<a id="load-more-info"><div class="arrow-down"></div></a>
+			  		</li>
+				</div>
+			</ul>
 			
 		</div>
-
+		
 		<div class="col-sm-6">
 		  	<div class="panel panel-default actual-title-box">
 				<div class="panel-body actual-title">
