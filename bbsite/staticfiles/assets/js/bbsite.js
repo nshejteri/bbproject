@@ -9,6 +9,11 @@ $(document).ready(function() {
 		watch		: true
 	});
 
+	$(".all-news-text").dotdotdot({
+		ellipsis	: '... ',
+		watch		: true
+	});
+
 	var $imgs = $(".header-slide").find("img");
 
 	i = 0;
@@ -18,65 +23,13 @@ $(document).ready(function() {
 	    $($imgs.get(next - 1)).fadeOut(500);
 	    $($imgs.get(next)).fadeIn(500);
 	}
+	$('#test').weatherfeed(['532456'], {
+		woeid: true,
+		link: false
+	});
 
 	/*var interval = setInterval(changeImage, 2000);*/
-	/*
-	$('#load-more-ifo').click(function(event) {
-		
-		var offset = 8;
-		var limit = 4;
-		var csrftoken = getCookie('csrftoken');
-
-		console.log(csrftoken);
-
-		function csrfSafeMethod(method) {
-    		// these HTTP methods do not require CSRF protection
-    		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-		}
-
-		$.ajaxSetup({
-			crossDomain: false,
-		    beforeSend: function(xhr, settings) {
-		        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-		            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-		        }
-		    }
-		});
-
-		$.ajax({
-			url: 'informations',
-			type: 'POST',
-			dataType: "json",
-			data: {offset: offset, limit: limit},
-			
-			success:function(response){
-					 var json_response = JSON.parse(response);
-				    // now get the variables from the json_response
-				    alert(json_response);
-			},
-    		complete:function(){},
-    		error:function (xhr, textStatus, thrownError){
-        		alert("error doing something");
-    		}
-		});
-	});*/
 });
-/*
-function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie != '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = jQuery.trim(cookies[i]);
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) == (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}*/
 
 $(function() {
 	$('#load-more-info').click(function() {
@@ -102,6 +55,10 @@ $(function() {
 			}
 		});
 	});
+});
+
+$(document).ready(function(){
+  $('.bxslider').bxSlider();
 });
 
 

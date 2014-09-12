@@ -1,14 +1,38 @@
 {% extends "base.html" %}
 
-{% block sidebar %}
-<ul>
-	<li><a href="/news/all">Sve vesti</a></li>
-</ul>
+
+{% block left_sidebar %}
+<div class="col-sm-2">
+	<div class="panel panel-default news-title-box">
+		<div class="panel-body news-title">
+			Najnovije vesti
+		</div>
+	</div>
+	<div class="single-news-left-menu">
+		<hr/>
+		{% for news in last_news %}
+			<p><a href="/news/id/{{ news.id }}">{{ news.title }}</a></p>
+			<hr class="inner-hr" />
+		{% endfor %}
+		
+		<p><a href="/news/all">Sve vesti</a></p>
+	</div>
+</div>
 {% endblock %}
 
 {% block content %}
-
-<h1>{{ single_news.title }}</h1>
-<p>{{ single_news.text }}</p>
-
+<div class="col-sm-7">
+	
+	<div class="panel panel-default news-title-box">
+		<div class="panel-body news-title">
+			{{ single_news.title }} <span>{{ single_news.pub_date|date:'d/m/Y H:i' }}</span>
+		</div>
+	</div>
+	
+	<p class="single-news-body">
+		<img src="/media/{{ single_news.thumbnail }}" class="single-news-img" />
+		{{ single_news.text }}
+		<br style="clear: both;" />
+	</p>
+</div>
 {% endblock %}	
